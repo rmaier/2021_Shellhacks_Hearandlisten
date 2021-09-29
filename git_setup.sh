@@ -32,10 +32,6 @@ git remote add origin git@github.com:rmaier/2021_Shellhacks_Hearandlisten.git
 git push -u origin main
 
 
-#user: 
-
-#token: 
-#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
 
 #####
 
