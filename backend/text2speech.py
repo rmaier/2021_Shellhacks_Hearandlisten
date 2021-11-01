@@ -1,7 +1,8 @@
 ## Google text to speech
 # pip install --upgrade google-cloud-texttospeech
+# 3. text2speech
 
-def synthesize_text(text):
+def synthesize_text(text, fname):
     """Synthesizes speech from the input string of text."""
     from google.cloud import texttospeech
 
@@ -29,11 +30,11 @@ def synthesize_text(text):
     )
 
     # The response's audio_content is binary.
-    with open("output.mp3", "wb") as out:
+    with open(fname, "wb") as out:
         out.write(response.audio_content)
         print('Audio content written to file "output.mp3"')
 
 ##
 
 #synthesize_text(response_standard_mp3.results[0].alternatives[0].transcript )
-synthesize_text(result_tr['translatedText'])
+# synthesize_text(result_tr['translatedText'])

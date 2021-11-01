@@ -1,13 +1,7 @@
 ## Google Translate
 # pip install --upgrade google-cloud-translate
 # google cloud likely is returning a protocol buffer, you can check out https://developers.google.com/protocol-buffers/docs/pythontutorial for details on how to work with them in python
-
-import os 
-
-import six
-from google.cloud import translate_v2 as translate
-
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'pelagic-rig-327114-388e59ecc397.json'
+# 2. translate.py
 
 def translate_text(target, text):
     """Translates text into the target language.
@@ -15,6 +9,14 @@ def translate_text(target, text):
     Target must be an ISO 639-1 language code.
     See https://g.co/cloud/translate/v2/translate-reference#supported_languages
     """
+    import os 
+
+    import six
+    from google.cloud import translate_v2 as translate
+
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'pelagic-rig-327114-388e59ecc397.json'
+    
+    
     translate_client = translate.Client()
 
     if isinstance(text, six.binary_type):
@@ -24,11 +26,10 @@ def translate_text(target, text):
     # will return a sequence of results for each text.
     result_tr = translate_client.translate(text, target_language=target)
 
-    print(u"Text: {}".format(result_tr["input"]))
-    print(u"Translation: {}".format(result_tr["translatedText"]))
-    print(u"Detected source language: {}".format(result_tr["detectedSourceLanguage"]))
+#     print(u"Text: {}".format(result_tr["input"]))
+#     print(u"Translation: {}".format(result_tr["translatedText"]))
+#     print(u"Detected source language: {}".format(result_tr["detectedSourceLanguage"]))
 
     return result_tr # type dict
     
-result_tr = translate_text('PT_BR', response_standard_mp3.results[0].alternatives[0].transcript)
-
+# result_tr = translate_text('PT_BR', response_standard_mp3.results[0].alternatives[0].transcript)
