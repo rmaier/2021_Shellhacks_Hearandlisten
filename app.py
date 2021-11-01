@@ -51,21 +51,9 @@ def index():
 				audio=audio_mp3
 			)
 
-			# print(response_standard_mp3)
 			transcript = response_standard_mp3.results[0].alternatives[0].transcript
- 
-		
-#			recognizer = sr.Recognizer()
-#			audioFile = sr.AudioFile(file)
-#			with audioFile as source:
-#			   data = recognizer.record(source)
-#			transcript = recognizer.recognize_google(data, key=None)
-#			print('DEBUG: ', transcript)
 
 	return render_template('index.html', transcript = transcript)
 
 if __name__ == "__main__":
    app.run(debug = True, threaded=True)
-
-
-
