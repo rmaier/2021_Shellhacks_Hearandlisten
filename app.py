@@ -19,6 +19,7 @@ def index():
 	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "pelagic-rig-327114-388e59ecc397.json"
 	speech_client = speech.SpeechClient()
 	transcript = ""
+	
 	if request.method == "POST":
 		print("DEBUG : FORM DATA RECEIVED")
 
@@ -46,7 +47,7 @@ def index():
 			# Transcript
 			transcript = result_translate['translatedText'] # dict -> ['translatedText']
 
-	return render_template('index.html', transcript = transcript)
+	return render_template('index.html',result_speech2text = result_speech2text, transcript = transcript)
 
 if __name__ == "__main__": # this is for debug purposes and is only executed if the app.py is called by itself and not by another method
    app.run(debug = True, threaded=True)

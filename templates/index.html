@@ -13,13 +13,18 @@
         <input type="file" name="file"/>
         <br>
         <input type="submit" id="submitButton" value="Transcribe"/>
+        <br>
     </form>
+    
+	{% if transcript != "" %}
+		<div id="speechTranscriptionContainer">
+			<h1>Original</h1>
+			<p id="speechText">{{result_speech2text}}</p>
+			<h1>Translated</h1>
+			<p id="speechText">{{transcript}}</p>
+		</div>
+	{% endif %}
 </div>
-{% if transcript != "" %}
-<div id="speechTranscriptionContainer">
-	<h1>Transcript</h1>
-	<p id="speechText">{{transcript}}</p>
-</div>
-{% endif %}
+
 </body>
 </html>
