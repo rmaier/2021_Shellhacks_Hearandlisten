@@ -1,5 +1,7 @@
 ''' This method starts a Flask instance and provides a small web application with a speech recognition service. 
 You upload an mp3 file and get the transcript in the browser. 
+
+if __name__ == "__main__": # this is for debug purposes and is only executed if the app.py is called by itself and not by another method
 '''
 from flask import Flask, render_template, request, redirect
 import speech_recognition as sr
@@ -16,9 +18,16 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"]) # decorator function --> the index() goes through the app.route() function.
 def index():
 	'''This is the main method who starts the Flask and initiates the method(s).'''
+	
 	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "pelagic-rig-327114-388e59ecc397.json"
 	speech_client = speech.SpeechClient()
+
+#	Reset all values, if I don't do that I get an error message, everything that is in the return render_template() must be initialized! 
 	transcript = ""
+	result_speech2text = ""
+	result_translate = ""
+	target = ""
+	fname = ""
 	
 	if request.method == "POST":
 		print("DEBUG : FORM DATA RECEIVED")
@@ -35,9 +44,10 @@ def index():
 #		This is the main loop for our processes
 
 		if file:
+			fname = file.filename # for the return command
+			
 			# 1. Speech2Text
 			response_standard_mp3 = backend.speech2text.speech2text(file)
-
 			result_speech2text = response_standard_mp3.results[0].alternatives[0].transcript
 			
 			# 2. Translate
@@ -47,7 +57,7 @@ def index():
 			# Transcript
 			transcript = result_translate['translatedText'] # dict -> ['translatedText']
 
-	return render_template('index.html',result_speech2text = result_speech2text, transcript = transcript)
-
-if __name__ == "__main__": # this is for debug purposes and is only executed if the app.py is called by itself and not by another method
+	return render_template('index.html',result_speech2text = result_speech2text, target = target, fname = fname , transcript = transcript)
+	
+if __name__ == "__main__": 
    app.run(debug = True, threaded=True)
