@@ -44,6 +44,7 @@ def index():
 #		This is the main loop for our processes
 
 		if file:
+			olang = request.form['olang'] # gets the form data (dropdown from html)
 			fname = file.filename # for the return command
 			
 			# 1. Speech2Text
@@ -51,13 +52,13 @@ def index():
 			result_speech2text = response_standard_mp3.results[0].alternatives[0].transcript
 			
 			# 2. Translate
-			target = 'PT_BR'
+			target = olang #'PT_BR'
 			result_translate = backend.translate.translate_text(target, result_speech2text)
 			
 			# Transcript
 			transcript = result_translate['translatedText'] # dict -> ['translatedText']
 
-	return render_template('index.html',result_speech2text = result_speech2text, target = target, fname = fname , transcript = transcript)
+	return render_template('index.html',result_speech2text = result_speech2text, fname = fname , transcript = transcript, olang = olang)
 	
 if __name__ == "__main__": 
    app.run(debug = True, threaded=True)
