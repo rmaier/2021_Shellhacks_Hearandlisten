@@ -28,6 +28,7 @@ def index():
 	result_translate = ""
 	target = ""
 	fname = ""
+	olang = ""
 	
 	if request.method == "POST":
 		print("DEBUG : FORM DATA RECEIVED")
