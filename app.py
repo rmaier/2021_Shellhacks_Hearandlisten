@@ -6,6 +6,7 @@ import speech_recognition as sr
 import os
 from google.cloud import speech
 
+import backend.speech2text
 import backend.translate
 
 app = Flask(__name__)
@@ -31,30 +32,9 @@ def index():
 	   		return redirect(request.url)
 
 		if file:
-			# Google Cloud -> IAM & Admin -> create service Acc --> create key
-			os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'pelagic-rig-327114-388e59ecc397.json'
-			speech_client = speech.SpeechClient()
-
-			# 1. Ex 1 local media file
-
-			byte_data_mp3 = file.read() # file is a Fask "FileStorage" object. I can read it directly. https://stackoverflow.com/questions/63306323/typeerror-expected-str-bytes-or-os-pathlike-object-not-filestorage-keeps-popp
-			audio_mp3 = speech.RecognitionAudio(content=byte_data_mp3)
-
-			## 2. Configure Media files
-
-			config_mp3 = speech.RecognitionConfig(
-				sample_rate_hertz=48000,
-				enable_automatic_punctuation=True,
-				language_code='en-US'
-			)
-
-			# 3. Transcibing the RecognitionAudio objects
-			# needed to enable Google Cloud to Speech module on website
-
-			response_standard_mp3 = speech_client.recognize(
-				config=config_mp3,
-				audio=audio_mp3
-			)
+			# 1. Speech2Text
+			
+			response_standard_mp3 = backend.speech2text.speech2text(file)
 
 			transcript = response_standard_mp3.results[0].alternatives[0].transcript
 			
