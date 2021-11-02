@@ -6,14 +6,14 @@ import speech_recognition as sr
 import os
 from google.cloud import speech
 
-import backend.speech2text
-import backend.translate
+import backend.speech2text # import .py files from ./backend folder. works if an empty __init__.py file exists
+import backend.translate 
 
 app = Flask(__name__)
 
-#This method will return what should be returned on the homepage
+# This method will return what should be returned on the homepage
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"]) # decorator function --> the index() goes through the app.route() function.
 def index():
 	'''This is the main method who starts the Flask and initiates the method(s).'''
 	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "pelagic-rig-327114-388e59ecc397.json"
@@ -31,18 +31,22 @@ def index():
 		if file.filename == "":
 	   		return redirect(request.url)
 
+#		This is the main loop for our processes
+
 		if file:
 			# 1. Speech2Text
-			
 			response_standard_mp3 = backend.speech2text.speech2text(file)
 
-			transcript = response_standard_mp3.results[0].alternatives[0].transcript
+			result_speech2text = response_standard_mp3.results[0].alternatives[0].transcript
 			
-			## 2. Translate
+			# 2. Translate
+			target = 'PT_BR'
+			result_translate = backend.translate.translate_text(target, result_speech2text)
 			
-			
+			# Transcript
+			transcript = result_translate['translatedText'] # dict -> ['translatedText']
 
 	return render_template('index.html', transcript = transcript)
 
-if __name__ == "__main__":
+if __name__ == "__main__": # this is for debug purposes and is only executed if the app.py is called by itself and not by another method
    app.run(debug = True, threaded=True)

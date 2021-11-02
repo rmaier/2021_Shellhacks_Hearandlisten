@@ -16,7 +16,6 @@ def translate_text(target, text):
 
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'pelagic-rig-327114-388e59ecc397.json'
     
-    
     translate_client = translate.Client()
 
     if isinstance(text, six.binary_type):
