@@ -1,3 +1,6 @@
+''' This method starts a Flask instance and provides a small web application with a speech recognition service. 
+You upload an mp3 file and get the transcript in the browser. 
+'''
 from flask import Flask, render_template, request, redirect
 import speech_recognition as sr
 import os
@@ -11,6 +14,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+	'''This is the main method who starts the Flask and initiates the method(s).'''
 	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "pelagic-rig-327114-388e59ecc397.json"
 	speech_client = speech.SpeechClient()
 	transcript = ""
