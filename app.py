@@ -3,6 +3,7 @@ import speech_recognition as sr
 import os
 from google.cloud import speech
 
+import backend.translate
 
 app = Flask(__name__)
 
@@ -52,6 +53,10 @@ def index():
 			)
 
 			transcript = response_standard_mp3.results[0].alternatives[0].transcript
+			
+			## 2. Translate
+			
+			
 
 	return render_template('index.html', transcript = transcript)
 
