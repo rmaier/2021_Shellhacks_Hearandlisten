@@ -24,3 +24,10 @@ Frontend:
 * show speech to text
 * print translation to screen (copiable)
 
+Installed packages: 
+pip install flask
+pip install google-cloud-speech
+pip install google-cloud-translate
+pip install google-cloud-texttospeech
+pip install SpeechRecognition
+
