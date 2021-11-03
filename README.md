@@ -1,4 +1,8 @@
 # 2021_Shellhacks_Hearandlisten
+
+This is the simpler voice recognition version from https://thecodex.me/blog/speech-recognition-with-python-and-flask, which has been submitted at the Shellhacks hackathon 2021. 
+***
+
 Shellhacks: Productivity Booster with Google Cloud. 
 
 Feature: 
