@@ -1,15 +1,15 @@
-# 2021_Shellhacks_Hearandlisten
-Shellhacks: Productivity Booster with Google Cloud. 
+# 2021 Shellhacks: *Hearandlisten*
+## Shellhacks: Productivity Booster with Google Cloud. 
 
-Feature: 
-* voice recognition --> speech to text
-* translate to other language (text) --> Cloud translation
+## Features: 
+* voice recognition &rarr; speech to text
+* translate to other language (text) &rarr; Cloud translation
 
-Steps: 
+## Steps: 
 * workflow
 * development
 
-Backend: 
+## Backend: 
 * mic / audio file input
 * route to API (audio)
 
@@ -17,17 +17,20 @@ Backend:
 * route to cloud translator
 * receive text and print
 
-Frontend: 
+## Frontend: 
 * recording button /file upload
 * choose language (opt)
 * import from other app (share to)
 * show speech to text
 * print translation to screen (copiable)
 
-Installed packages: 
+## Installed packages: 
+```python
 pip install flask
 pip install google-cloud-speech
 pip install google-cloud-translate
 pip install google-cloud-texttospeech
 pip install SpeechRecognition
+```
 
+See also the [requirements file](./requirements.txt).
