@@ -3,6 +3,30 @@
 
 This project is a simple tool, that does voice recognition, translates it in a language to choose and prints the translated output. 
 
+### Overview
+
+```bash
+.
+├── app.py
+├── backend
+│   ├── hearandlisten-da50cb4c59a8.json
+│   ├── __init__.py
+│   ├── jobs.mp3
+│   ├── main.py
+│   ├── play_sound.py
+│   ├── speech2text.py
+│   ├── text2speech.py
+│   ├── translate.py
+├── README.md
+├── requirements.txt
+├── static
+│   └── styles
+│       └── index.css
+├── templates
+    └── index.html
+```
+
+
 ### Backend
 
 * Python
@@ -16,7 +40,7 @@ This project is a simple tool, that does voice recognition, translates it in a l
 
 * very basic HTML & CSS
 
-### Demo
+### Screenshots
 
 **Step 1: Load page**
 
