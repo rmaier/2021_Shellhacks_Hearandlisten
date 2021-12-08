@@ -34,3 +34,20 @@ pip install SpeechRecognition
 ```
 
 See also the [requirements file](./requirements.txt).
+
+# Setup of the Google Cloud Platform
+
+https://console.cloud.google.com/ &rarr; register
+
+## create new project
+
+* new project &rarr; enter project name
+* create credentials
+  * speech2text api
+  * create keys &rarr; keys &rarr; add key &rarr; JSON &rarr; download and store it secure
+
+## add needed API's
+
+* Cloud Speech-to-Text API ```from google.cloud import speech```
+* Cloud Translation API ```from google.cloud import translate_v2 as translate```
+* Cloud Text-to-Speech API ```from google.cloud import texttospeech```

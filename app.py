@@ -19,7 +19,7 @@ app = Flask(__name__)
 def index():
 	'''This is the main method who starts the Flask and initiates the method(s).'''
 	
-	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "pelagic-rig-327114-388e59ecc397.json"
+	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "hearandlisten-da50cb4c59a8.json"
 	speech_client = speech.SpeechClient()
 
 #	Reset all values, if I don't do that I get an error message, everything that is in the return render_template() must be initialized! 

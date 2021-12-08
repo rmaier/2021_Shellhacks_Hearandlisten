@@ -14,7 +14,7 @@ def translate_text(target, text):
     import six
     from google.cloud import translate_v2 as translate
 
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'pelagic-rig-327114-388e59ecc397.json'
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'hearandlisten-da50cb4c59a8.json'
     
     translate_client = translate.Client()
 

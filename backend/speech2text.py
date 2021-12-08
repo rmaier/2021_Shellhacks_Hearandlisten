@@ -10,7 +10,7 @@ def speech2text(file):
 	import os
 	from google.cloud import speech
 	# Google Cloud -> IAM & Admin -> create service Acc --> create key
-	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'pelagic-rig-327114-388e59ecc397.json'
+	os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'hearandlisten-da50cb4c59a8.json'
 	speech_client = speech.SpeechClient()
 
 	# 1. Ex 1 local media file
