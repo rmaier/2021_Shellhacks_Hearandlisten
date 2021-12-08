@@ -8,8 +8,8 @@ This project is a simple tool, that does voice recognition, translates it in a l
 ```bash
 .
 ├── app.py
+├── hearandlisten-da50cb4c59a8.json
 ├── backend
-│   ├── hearandlisten-da50cb4c59a8.json
 │   ├── __init__.py
 │   ├── jobs.mp3
 │   ├── main.py
