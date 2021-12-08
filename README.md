@@ -20,15 +20,15 @@ This project is a simple tool, that does voice recognition, translates it in a l
 
 **Step 1: Load page**
 
-![1](/home/rudolph/python/2021_Shellhacks_Hearandlisten/templates/1.png)
+![1](templates/1.png)
 
 **Step 2: Choose file and language**
 
-![2](/home/rudolph/python/2021_Shellhacks_Hearandlisten/templates/2.png)
+![2](templates/2.png)
 
 **Step 3: Get the results**
 
-![3](/home/rudolph/python/2021_Shellhacks_Hearandlisten/templates/3.png)
+![3](templates/3.png)
 
 ## Installed packages: 
 ```python
