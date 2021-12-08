@@ -1,28 +1,34 @@
 # 2021 Shellhacks: *Hearandlisten*
 ## Shellhacks: Productivity Booster with Google Cloud. 
 
-## Features: 
-* voice recognition &rarr; speech to text
-* translate to other language (text) &rarr; Cloud translation
+This project is a simple tool, that does voice recognition, translates it in a language to choose and prints the translated output. 
 
-## Steps: 
-* workflow
-* development
+### Backend
 
-## Backend: 
-* mic / audio file input
-* route to API (audio)
+* Python
+* Google Cloud API
+  * Cloud Speech-to-Text API ```from google.cloud import speech```
+  * Cloud Translation API ```from google.cloud import translate_v2 as translate```
+  * Cloud Text-to-Speech API ```from google.cloud import texttospeech```
+* Flask
 
-* receive text
-* route to cloud translator
-* receive text and print
+### Frontend
 
-## Frontend: 
-* recording button /file upload
-* choose language (opt)
-* import from other app (share to)
-* show speech to text
-* print translation to screen (copiable)
+* very basic HTML & CSS
+
+### Demo
+
+**Step 1: Load page**
+
+![1](/home/rudolph/python/2021_Shellhacks_Hearandlisten/templates/1.png)
+
+**Step 2: Choose file and language**
+
+![2](/home/rudolph/python/2021_Shellhacks_Hearandlisten/templates/2.png)
+
+**Step 3: Get the results**
+
+![3](/home/rudolph/python/2021_Shellhacks_Hearandlisten/templates/3.png)
 
 ## Installed packages: 
 ```python
